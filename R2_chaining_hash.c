@@ -79,21 +79,13 @@ int insert(char key[], data *details) {
     fprintf(stderr, "Out of memory\n");
     exit(2);
   }
+
   p->key = key;
   p->details = *details;
 
   h = hash(key);
-  node *q = htable[h];
-
-  while (q != NULL && q->next != NULL) {
-    q = q->next;
-  }
-
-  if (q == NULL) {
-    htable[h] = p;
-  } else {
-    q->next = p;
-  }
+  p->next = htable[h];
+  htable[h] = p;
 
   return 1;
 }
