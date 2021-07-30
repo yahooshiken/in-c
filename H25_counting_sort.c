@@ -21,7 +21,7 @@ void func(unsigned int A[], unsigned int B[], int n) {
   for (i = 0; i <= n - 1; i++) {
     // 安定ソートにするには、逆順にする
     // for (i = n - 1; i >= 0; i--) {
-    B[C[--A[i]]] = A[i];
+    B[--C[A[i]]] = A[i];
   }
 }
 
