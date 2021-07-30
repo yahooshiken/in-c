@@ -28,4 +28,5 @@ add_executable(H19_binary_search_not_recursive H19_binary_search_not_recursive.c
 add_executable(H19_linked_list H19_linked_list.c)
 add_executable(H18_stack H18_stack.c)
 add_executable(H17_count H17_count.c)
+add_executable(H17_memory H17_memory.c)
 add_executable(H16_merge_sort H16_merge_sort.c)
