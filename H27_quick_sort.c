@@ -14,7 +14,7 @@ int *func(int *sp, int *ep) {
       ;
 
     ip--;
-    while (*ip < *--jp && pv < *jp)
+    while (ip < --jp && pv < *jp)
       ;
 
     if (ip >= jp)
@@ -24,7 +24,6 @@ int *func(int *sp, int *ep) {
     *ip = *jp;
     *jp = temp;
 
-    ip--;
     ip++;
   }
 
