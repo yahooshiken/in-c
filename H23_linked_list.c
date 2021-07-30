@@ -12,7 +12,7 @@ struct CELL *insert(struct CELL *x, int val) {
   p = (struct CELL *)malloc(sizeof(struct CELL));
 
   p->value = val;
-  p->next = NULL;
+  p->next = x->next;
   x->next = p;
 
   return p;
