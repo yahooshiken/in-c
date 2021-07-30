@@ -7,26 +7,26 @@
 double stack[STACKSIZE];
 int i = 0;
 
-double push(double d) {
-  if (i >= STACKSIZE - 1) {
+int push(double d) {
+  if (i >= STACKSIZE) {
+    printf("Over\n");
     return -1;
   }
 
   stack[i] = d;
   i++;
 
-  return d;
+  return i;
 }
 
-double pop(double *d) {
+int pop(double *d) {
   if (i <= 0) {
     return -1;
   }
 
   i--;
-  double val = stack[i];
-  *d = val;
-  return val;
+  *d = stack[i];
+  return i;
 }
 
 int main() {
@@ -34,13 +34,13 @@ int main() {
 
   assert(pop(p) == -1);
 
-  assert(push(1.0) == 1.0);
-  assert(push(2.0) == 2.0);
-  assert(push(3.0) == 3.0);
+  assert(push(1.0) == 1);
+  assert(push(2.0) == 2);
+  assert(push(3.0) == 3);
 
-  assert(pop(p) == 3.0);
-  assert(pop(p + 1) == 2.0);
-  assert(pop(p + 2) == 1.0);
+  assert(pop(p) == 2);
+  assert(pop(p + 1) == 1);
+  assert(pop(p + 2) == 0);
 
   assert(*p == 3.0);
   assert(*(p + 1) == 2.0);
