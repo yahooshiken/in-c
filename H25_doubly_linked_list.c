@@ -15,13 +15,19 @@ struct CELL *insert(struct CELL *x, int d) {
     exit(1);
   } else {
     p->data = d;
-    p->next = NULL;
     p->prev = x;
+    p->next = NULL;
+
     if (x != NULL) {
+      p->next = x->next;
       x->next = p;
     }
-    return p;
+
+    if (p->next != NULL) {
+      p->next->prev = p;
+    }
   }
+  return p;
 }
 
 int main() {
@@ -29,8 +35,8 @@ int main() {
   struct CELL *cell1 = insert(first, 1);
   struct CELL *cell2 = insert(cell1, 2);
   struct CELL *cell3 = insert(cell2, 3);
-  struct CELL *cell4 = insert(cell3, 4);
-  struct CELL *last = insert(cell4, 5);
+  struct CELL *cell4 = insert(first, 4);
+  struct CELL *last = insert(cell3, 5);
 
   struct CELL *p = first;
   while (p != NULL) {
